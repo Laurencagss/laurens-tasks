@@ -5,11 +5,11 @@ import { connect } from 'react-redux';
 
 const Nav = ({ users, tasks}) => {
     return (
-       <div>
+       <nav>
               <Link to="/">Home</Link>
            <Link to = "/tasks">Tasks ({ tasks.length}) </Link>
               <Link to = "/users">Users ({users.length}) </Link>
-       </div>
+       </nav>
     );
 };
 

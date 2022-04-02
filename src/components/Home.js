@@ -1,0 +1,19 @@
+import React from 'react';
+import { connect } from 'react-redux';
+
+const Home = ({ tasks, users}) => {
+    return (
+        <div>
+          The average number of tasks per user is: {tasks.length / users.length}
+        </div>
+    );
+}
+
+const mapState = (state) => {
+    return {
+        tasks: state.tasks,
+        users: state.users
+    };
+};
+
+export default connect(mapState)(Home);
