@@ -1,7 +1,7 @@
 const app = require('express').Router();
 const { Task } = require('../db');
 
-app.get('/api/tasks', async(req, res) => {
+app.get('/', async(req, res) => {
     try {
 res.send(await Task.findAll());
 
@@ -11,7 +11,7 @@ res.send(await Task.findAll());
     }
 });
 
-app.post ('/api/tasks', async(req, res,next) => {
+app.post ('/', async(req, res,next) => {
     try {
     res.sendStatus(201),send(await Task.create(req.body));
     } catch (ex) {
@@ -20,7 +20,7 @@ app.post ('/api/tasks', async(req, res,next) => {
 });
 
 
-app.delete ('/api/:id', async(req, res,next) => {
+app.delete ('/:id', async(req, res,next) => {
     try {
         const user = await User.findByPk(req.params.id);
         await user.destroy()
