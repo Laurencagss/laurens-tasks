@@ -11,6 +11,15 @@ res.send(await Task.findAll());
     }
 });
 
+app.post ('/api/tasks', async(req, res,next) => {
+    try {
+    res.sendStatus(201),send(await Task.create(req.body));
+    } catch (ex) {
+        next(ex);
+    }
+});
+
+
 app.delete ('/api/:id', async(req, res,next) => {
     try {
         const user = await User.findByPk(req.params.id);
