@@ -5,13 +5,15 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
+    "build:dev": "webpack --watch --mode=development",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:dev": "nodemon server"
+    "start:dev": "nodemon server & npm run build:dev"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.17.8",
     "express": "^4.17.3",
     "pg": "^8.7.3",
     "postgres": "^3.0.2",
@@ -19,7 +21,11 @@
     "webpack": "^5.71.0"
   },
   "devDependencies": {
+    "@babel/preset-react": "^7.16.7",
+    "babel-loader": "^8.2.4",
     "nodemon": "^2.0.15",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
     "webpack-cli": "^4.9.2"
   }
 }
