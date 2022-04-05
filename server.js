@@ -13,6 +13,7 @@ const init = async() => {
 User.create ({ firstName: 'Moe'}),
 User.create ({ firstName: 'Etyhl'}),
 User.create ({ firstName: 'Lucy'}),
+User.create ({ firstName: 'Fred'}),
     ]);
     await Promise.all([
 Task.create ({ name: 'Walk dog', userId: lucy.id}),

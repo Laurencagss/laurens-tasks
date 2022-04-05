@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import Nav from "./Nav";
 import { connect } from 'react-redux';
 import axios from 'axios';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Home from './Home';
 import Users from './Users';
+import UsersWithoutTasks from './UsersWithoutTasks';
 import Tasks from './Tasks';  
 import UserTasks from './UserTasks';
 
@@ -16,10 +17,13 @@ class App extends Component {
     return (
       <div>
       <Nav />
+      <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/users" exact component={Users} />
+      <Route path= "/users/without-tasks" component={UsersWithoutTasks} />
       <Route path="/tasks" component={Tasks} />
       <Route path="/users/:id" component={UserTasks} />
+     </Switch>
       </div>
     );
   }

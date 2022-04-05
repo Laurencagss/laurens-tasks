@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 const UserTasks = ({ users, tasks, match }) => {
     return (
+       <div>
+             <h2>User Tasks</h2>
        <ul>
        {
            tasks.filter(task => task.userId === match.params.id*1).map( task => {
@@ -13,6 +15,7 @@ const UserTasks = ({ users, tasks, match }) => {
            })
          }
        </ul>
+         </div>
     );
         };
 
