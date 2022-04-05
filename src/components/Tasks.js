@@ -8,7 +8,9 @@ const Tasks = ({ users, tasks }) => {
            tasks.map( task => {
               const user = users.find(user => user.id === task.userId);
            return (
-                <li key = {task.id}> { task.name } ({user ? user.firstName: ''}) </li>
+                <li key = {task.id}> { task.name } 
+                <button onClick = { () => destroy(task.id)}>x</button>
+                ({user ? user.firstName: ''}) </li>
               )
            })
          }
@@ -16,4 +18,11 @@ const Tasks = ({ users, tasks }) => {
     );
         };
 
-export default connect ( state => state)(Tasks);
+    const mapDispatchToProps = (dispatch) => {
+        return {
+destroy: (id) => { console3.log(id)
+}
+        };
+    }
+
+export default connect ( state => state, mapDispatchToProps)(Tasks);
