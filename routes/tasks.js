@@ -13,7 +13,7 @@ res.send(await Task.findAll());
 
 app.post ('/', async(req, res,next) => {
     try {
-    res.sendStatus(201),send(await Task.create(req.body));
+    res.status(201).send(await Task.create(req.body));
     } catch (ex) {
         next(ex);
     }
@@ -22,8 +22,8 @@ app.post ('/', async(req, res,next) => {
 
 app.delete ('/:id', async(req, res,next) => {
     try {
-        const user = await User.findByPk(req.params.id);
-        await user.destroy()
+        const task = await Task.findByPk(req.params.id);
+        await task.destroy()
        res.sendStatus(204);
     } catch (ex) {
         next(ex);

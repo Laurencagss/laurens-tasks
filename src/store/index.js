@@ -1,22 +1,13 @@
-import {createStore, combineReducers} from 'redux';
- const tasks = (state = [], action) => {
-    if(action.type === 'SET_TASKS') {
-    return action.tasks;
-    }
-    return state;
-}
-    const users = (state = [], action) => {
-        if(action.type === 'SET_USERS') {
-            return action.users;
-    }
-    return state;
-}
+import {createStore, combineReducers, applyMiddleware} from 'redux';
+import logger from 'redux-logger';
+import tasks from './task.reducer.js';
+import users from './user.reducer.js';
 
     const reducer = combineReducers({
         tasks: tasks,
         users: users
     });
 
-    const store= createStore(reducer);
+    const store= createStore(reducer, applyMiddleware(logger));
 
     export default store;

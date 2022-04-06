@@ -8,6 +8,7 @@ import Users from './Users';
 import UsersWithoutTasks from './UsersWithoutTasks';
 import Tasks from './Tasks';  
 import UserTasks from './UserTasks';
+import CreateTask from './CreateTask';
 
 class App extends Component {
   componentDidMount(){
@@ -21,8 +22,9 @@ class App extends Component {
       <Route path="/" exact component={Home} />
       <Route path="/users" exact component={Users} />
       <Route path= "/users/without-tasks" component={UsersWithoutTasks} />
-      <Route path="/tasks" component={Tasks} />
+      <Route path="/tasks" exact component={Tasks} />
       <Route path="/users/:id" component={UserTasks} />
+      <Route path="/tasks/create" component={CreateTask} />
      </Switch>
       </div>
     );
